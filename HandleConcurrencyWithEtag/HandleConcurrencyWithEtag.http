@@ -1,0 +1,28 @@
+@HandleConcurrencyWithEtag_HostAddress = https://localhost:7077
+
+GET {{HandleConcurrencyWithEtag_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{HandleConcurrencyWithEtag_HostAddress}}/api/products/1
+If-None-Match:"315B49D3D8DE4E882C2B68DCAA516F59"
+
+
+
+
+
+###
+
+PUT {{HandleConcurrencyWithEtag_HostAddress}}/api/products/1
+Content-Type: application/json
+If-Match:"73B998706AD2155C702F2C8B922ED91A"
+
+{
+  "name": "Mouse",
+  "price": 311408
+
+
+}
+
+###
